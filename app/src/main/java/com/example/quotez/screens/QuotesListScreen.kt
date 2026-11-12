@@ -1,22 +1,22 @@
 package com.example.quotez.screens
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.quotez.data.Quotes
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Preview(showBackground = true, showSystemUi = true)
+
+//@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun QuotesScreen() {
+fun QuotesScreen(
+    data: List<Quotes>,
+    listState: LazyListState,
+    status: Boolean,
+    quoteClick: () -> Unit
+) {
     Scaffold(
-        topBar = { Top() },
-    ) { List()}
+        topBar = { TopABar() },
+    ) {innerPadding ->
+        List(data, listState, status, quoteClick,innerPadding)
+    }
 }

@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun QuoteDetails() {
+fun QuoteCardDetails() {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -23,6 +23,5 @@ fun QuoteDetails() {
                 )
             )
     ){
-        Quote()
     }
 }

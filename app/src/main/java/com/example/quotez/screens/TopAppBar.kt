@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun Top() {
+fun TopABar() {
     CenterAlignedTopAppBar(
         title = {
             Text(
