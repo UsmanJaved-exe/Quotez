@@ -15,8 +15,7 @@ import com.example.quotez.data.Quotes
 fun List(
     data: List<Quotes>,
     listState: LazyListState,
-    status: Boolean,
-    quoteClick: () -> Unit,
+    quoteClick: (quote: Quotes) -> Unit,
     innerPadding: PaddingValues
 ) {
     LazyColumn(
@@ -27,7 +26,7 @@ fun List(
         userScrollEnabled = true,
     ) {
         items(data) { item ->
-            QuoteCard(item)
+            QuoteCard(item,quoteClick)
         }
     }
 }

@@ -11,12 +11,11 @@ import com.example.quotez.data.Quotes
 fun QuotesScreen(
     data: List<Quotes>,
     listState: LazyListState,
-    status: Boolean,
-    quoteClick: () -> Unit
+    quoteClick: (quote: Quotes) -> Unit
 ) {
     Scaffold(
         topBar = { TopABar() },
     ) {innerPadding ->
-        List(data, listState, status, quoteClick,innerPadding)
+        List(data, listState, quoteClick,innerPadding)
     }
 }
