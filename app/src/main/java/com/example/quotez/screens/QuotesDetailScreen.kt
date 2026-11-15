@@ -28,7 +28,7 @@ fun QuoteCardDetails(data: List<Quotes>, clickedQuote: Quotes, onBackClick: () -
                 )
                 .padding(innerPadding)
         ) {
-            QuoteCard(clickedQuote, quoteClick = {})
+            QuoteCard(clickedQuote, quoteClick = {},)
         }
     }
 }

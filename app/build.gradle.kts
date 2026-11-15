@@ -3,6 +3,7 @@ import org.gradle.kotlin.dsl.implementation
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -39,6 +40,8 @@ android {
 }
 
 dependencies {
+    val nav_version = "2.10.2"
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
@@ -53,6 +56,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.0")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
+    implementation("androidx.navigation:navigation-compose:${nav_version}")
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

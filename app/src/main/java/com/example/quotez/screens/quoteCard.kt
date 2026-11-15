@@ -29,15 +29,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.quotez.data.Quotes
 
+
 @Composable
-fun QuoteCard(item: Quotes, quoteClick: (Quotes) -> Unit) {
+fun QuoteCard(item: Quotes, quoteClick: (Quotes) -> Unit,navController: NavHostController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clickable(onClick = { quoteClick(item) }),
+            .clickable(onClick = { quoteClick(item)
+                navController.navigate("QuoteCardDetails") }),
         colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceVariant),
         elevation = CardDefaults.cardElevation(10.dp),
         shape = ShapeDefaults.Large
@@ -94,14 +97,14 @@ fun QuoteCard(item: Quotes, quoteClick: (Quotes) -> Unit) {
 }
 
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun Display() {
-    QuoteCard(
-        Quotes(
-            "Quote 1",
-            "Author 1",
-        ),
-        quoteClick = {}
-    )
-}
+//@Preview(showBackground = true, showSystemUi = true)
+//@Composable
+//fun Display() {
+//    QuoteCard(
+//        Quotes(
+//            "Quote 1",
+//            "Author 1",
+//        ),
+//        quoteClick = {},
+//    )
+//}
