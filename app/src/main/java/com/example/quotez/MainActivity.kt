@@ -3,7 +3,7 @@ package com.example.quotez
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.quotez.Hosts.Master
+import com.example.quotez.hosts.Master
 
 import com.example.quotez.ui.theme.QuotezTheme
 

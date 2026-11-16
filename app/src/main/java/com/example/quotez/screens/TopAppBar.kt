@@ -50,7 +50,9 @@ fun TopBBar(onBackClick: () -> Unit) {
 }
 
 @Composable
-fun BackIcon(onBackClick: () -> Unit) {
+fun BackIcon(
+    onBackClick: () -> Unit,
+) {
     Icon(
         modifier = Modifier
             .clickable(onClick = { onBackClick() }),

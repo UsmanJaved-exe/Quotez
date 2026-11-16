@@ -13,9 +13,12 @@ import androidx.compose.ui.graphics.Color
 import com.example.quotez.data.Quotes
 
 @Composable
-fun QuoteCardDetails(data: List<Quotes>, clickedQuote: Quotes, onBackClick: () -> Unit) {
+fun QuoteCardDetails(
+    clickedQuote: Quotes,
+    onBackClick: () -> Unit,
+) {
     Scaffold(
-        topBar = { TopBBar(onBackClick) },
+        topBar = { TopBBar(onBackClick)},
     ) { innerPadding ->
         Box(
             contentAlignment = Alignment.Center,
@@ -28,7 +31,7 @@ fun QuoteCardDetails(data: List<Quotes>, clickedQuote: Quotes, onBackClick: () -
                 )
                 .padding(innerPadding)
         ) {
-            QuoteCard(clickedQuote, quoteClick = {},)
+            QuoteCard(clickedQuote, quoteClick = {}, toNextScreen = {})
         }
     }
 }

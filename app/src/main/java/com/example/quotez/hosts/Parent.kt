@@ -1,4 +1,4 @@
-package com.example.quotez.Hosts
+package com.example.quotez.hosts
 
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -18,21 +18,27 @@ fun Master() {
     NavHost(navController, "QuotesScreen") {
         composable("QuotesScreen") {
             QuotesScreen(
-                vm.data,
+                data = vm.data,
                 listState = rememberLazyListState(),
-                { quote -> vm.quoteClick(quote) },navController)
+                quoteClick = { quote -> vm.quoteClick(quote) },
+                toNextScreen = { navController.navigate("QuoteCardDetails") })
         }
 
         composable("QuoteCardDetails") {
-            QuoteCardDetails(vm.data, vm.clickedQuote!!, { vm.onBackClick() })
+            vm.clickedQuote?.let { clickedQuote ->
+                QuoteCardDetails(
+                    clickedQuote = clickedQuote,
+                    onBackClick = {
+                        navController.popBackStack()
+                    })
+            }
+
         }
     }
 
 
-    val listState = rememberLazyListState()
-
-    QuotesScreen(vm.data, listState, { quote -> vm.quoteClick(quote) }, navController)
-    QuoteCardDetails(vm.data, vm.clickedQuote!!, { vm.onBackClick() })
+    //    QuotesScreen(vm.data, listState, { quote -> vm.quoteClick(quote) }, toNextScreen)
+//    vm.clickedQuote?.let { QuoteCardDetails( it, { vm.onBackClick() },toNextScreen,toPreviousScreen) }
 }
 
 

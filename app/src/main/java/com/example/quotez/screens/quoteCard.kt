@@ -26,21 +26,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.quotez.data.Quotes
 
 
 @Composable
-fun QuoteCard(item: Quotes, quoteClick: (Quotes) -> Unit,navController: NavHostController) {
+fun QuoteCard(item: Quotes, quoteClick: (Quotes) -> Unit, toNextScreen: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
             .clickable(onClick = { quoteClick(item)
-                navController.navigate("QuoteCardDetails") }),
+                toNextScreen() }),
         colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceVariant),
         elevation = CardDefaults.cardElevation(10.dp),
         shape = ShapeDefaults.Large

@@ -3,7 +3,6 @@ package com.example.quotez.screens
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
 import com.example.quotez.data.Quotes
 
 
@@ -13,11 +12,11 @@ fun QuotesScreen(
     data: List<Quotes>,
     listState: LazyListState,
     quoteClick: (quote: Quotes) -> Unit,
-    navController: NavHostController
+    toNextScreen: () -> Unit,
 ) {
     Scaffold(
         topBar = { TopABar() },
     ) {innerPadding ->
-        List(data, listState, quoteClick, innerPadding,navController)
+        List(data, listState, quoteClick, innerPadding, toNextScreen)
     }
 }

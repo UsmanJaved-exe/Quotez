@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import com.example.quotez.data.Quotes
 
 
@@ -18,8 +17,9 @@ fun List(
     listState: LazyListState,
     quoteClick: (quote: Quotes) -> Unit,
     innerPadding: PaddingValues,
-    navController: NavHostController
-) {
+    toNextScreen: () -> Unit,
+
+    ) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -28,7 +28,7 @@ fun List(
         userScrollEnabled = true,
     ) {
         items(data) { item ->
-            QuoteCard(item, quoteClick, navController)
+            QuoteCard(item, quoteClick, toNextScreen)
         }
     }
 }
