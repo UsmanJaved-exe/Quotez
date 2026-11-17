@@ -27,7 +27,8 @@ fun List(
         state = listState,
         userScrollEnabled = true,
     ) {
-        items(data) { item ->
+        items(data, key = { item -> item.id })
+        { item ->
             QuoteCard(item, quoteClick, toNextScreen)
         }
     }
